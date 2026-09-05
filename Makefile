@@ -51,8 +51,9 @@ AFLAGS	= r
 PY	= python/glafic/glafic.so
 OBJ_PY	= python.o
 CFLAGS3	= -Wall -shared -L$(LIBPATH) 
-PY_INC  := $(shell python3-config --includes)
-PY_LDS  := $(shell python3-config --ldflags --embed)
+PYTHON  ?= python3
+PY_INC  := -I$(shell $(PYTHON) -c 'import sysconfig; print(sysconfig.get_config_var("INCLUDEPY"))')
+PY_LDS  := -L$(shell $(PYTHON) -c 'import sysconfig; print(sysconfig.get_config_var("LIBDIR"))') -lpython$(shell $(PYTHON) -c 'import sysconfig; print(sysconfig.get_config_var("LDVERSION"))')
 
 default: bin
 
