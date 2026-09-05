@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "glafic"
+version = "2.1.15"
+description = "Library for gravitational lensing analyses"
+readme = "README.md"
+requires-python = ">=3"
+license = "GPL-3.0-or-later"
+license-files = ["LICENSE"]
+authors = [{name = "Masamune Oguri"}]
+
+[project.urls]
+Homepage = "https://github.com/oguri/glafic2"
+
+[tool.setuptools]
+package-dir = {"" = "python"}
+
+[tool.setuptools.packages.find]
+where = ["python"]
+
+[tool.setuptools.package-data]
+glafic = ["*.so"]
